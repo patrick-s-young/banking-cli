@@ -1,0 +1,16 @@
+{
+  "compilerOptions": {
+    "target": "ES2020",                          // Good async/await support
+    "module": "CommonJS",                        // Required for Node.js
+    "outDir": "./dist",                          // Compiled JS goes here
+    "rootDir": "./src",                          // Your TS files go here
+    "esModuleInterop": true,                     // For compatibility with CommonJS
+    "forceConsistentCasingInFileNames": true,    // Enforces consistent casing
+    "strict": true,                              // Enables all strict type checks
+    "skipLibCheck": true,                        // Skips type checking of lib files
+    "moduleResolution": "node",                  // Ensures proper resolution
+    "declaration": true                          // Emits .d.ts files if needed
+  },
+  "include": ["src"],
+  "exclude": ["node_modules", "dist"]
+}
