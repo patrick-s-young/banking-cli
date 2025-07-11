@@ -1,7 +1,6 @@
 # 💸 Bankbook CLI
 
-A minimalist TypeScript CLI tool for manually tracking financial transactions — designed with love for bookkeepers who appreciate the tactile clack of their IBM Model M keyboard.
-
+A minimalist TypeScript CLI tool for manually tracking financial transactions.
 ---
 
 ## 🧰 Features
@@ -20,4 +19,3 @@ A minimalist TypeScript CLI tool for manually tracking financial transactions �
 git clone https://github.com/patrick-s-young/banking-cli
 cd bankbook-cli
 npm install
-chmod +x src/cli.ts
