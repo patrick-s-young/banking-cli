@@ -1,21 +1,22 @@
-#!/usr/bin/env ts-node
 
 import { Command } from 'commander'
 import { addTransaction } from './commands/add'
 import { getTransaction } from './commands/get'
 import { getBalance } from './commands/balance'
+import path from 'path'
 
+process.env.DB_PATH = path.join(__dirname, 'transaction.json')
 const program = new Command()
 
 program
-  .name('bankbook')
+  .name('banking-cli')
   .description('Manual financial transaction tracker')
   .version('1.0.0')
 
 program
   .command('add')
-  .description('Add a transaction')
-  .argument('<keyValuePairs>', 'Comma-separated key=value list: accountName,amount,date')
+  .description('Add a transaction (e.g., add "accountName=$string,amount=$number,date=$date")')
+  .argument('<keyValuePairs>', 'Comma-separated key=value list: accountName,amount,date example:"accountName=savings,amount=120,date=07-15-2025"')
   .action(async (input: string) => {
     try {
       const id = await addTransaction(input)
