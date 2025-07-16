@@ -13,15 +13,15 @@
 
 ## Installation
 1. Clone the repository:
-   ```bash
+```bash
 git clone https://github.com/patrick-s-young/banking-cli
 cd banking-cli
-   ```
+```
 
 2. Install dependencies:
-   ```bash
-   npm install
-   ```
+```bash
+npm install
+```
 
 
 ## Development and Testing
