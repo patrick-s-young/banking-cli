@@ -1,8 +1,11 @@
 {
-  "name": "logfilter-cli",
+  "name": "banking-cli",
   "version": "1.0.0",
   "main": "dist/index.ts",
   "type": "commonjs",
+  "bin": {
+    "banking-cli": "./dist/cli.js"
+  },
   "scripts": {
     "test": "jest",
     "build": "tsc",

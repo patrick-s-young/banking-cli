@@ -1,20 +1,28 @@
 import fs from 'fs/promises'
 import { Transaction } from './types'
-import { FILE_PATH } from './config'
 
 export async function loadTransactions(): Promise<Transaction[]> {
+  const DB_PATH = process.env.DB_PATH as string
   try {
-    const content = await fs.readFile(FILE_PATH, 'utf8')
+    const content = await fs.readFile(DB_PATH, 'utf8')
     return JSON.parse(content)
-  } catch {
-    return []
+  } catch (err) {
+    if (err instanceof Error && err.message.includes('ENOENT')) {
+      return []
+    }
+    throw err
   }
 }
 
-export async function saveTransaction(tx: Transaction): Promise<void> {
+export async function saveTransaction(tx: Transaction): Promise<void> {  
+  const DB_PATH = process.env.DB_PATH as string
   const transactions = await loadTransactions()
   transactions.push(tx)
-  await fs.writeFile(FILE_PATH, JSON.stringify(transactions, null, 2))
+  try {
+    await fs.writeFile(DB_PATH, JSON.stringify(transactions, null, 2))
+  } catch (err) {
+    throw err
+  }
 }
 
 export async function findTransactionById(id: string): Promise<Transaction | undefined> {
